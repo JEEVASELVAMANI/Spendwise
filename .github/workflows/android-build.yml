@@ -18,14 +18,15 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Install Gradle 8.2.2
+      - name: Install Gradle 8.4
         run: |
-          GRADLE_DIST_URL="https://services.gradle.org/distributions/gradle-8.2.2-bin.zip"
+          GRADLE_VERSION=8.4
+          GRADLE_DIST_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"
           echo "Downloading $GRADLE_DIST_URL"
           curl -L "$GRADLE_DIST_URL" -o /tmp/gradle.zip
           sudo unzip -d /opt/gradle /tmp/gradle.zip
-          echo "GRADLE_HOME=/opt/gradle/gradle-8.2.2" >> $GITHUB_ENV
-          echo "PATH=/opt/gradle/gradle-8.2.2/bin:$PATH" >> $GITHUB_ENV
+          echo "GRADLE_HOME=/opt/gradle/gradle-${GRADLE_VERSION}" >> $GITHUB_ENV
+          echo "PATH=/opt/gradle/gradle-${GRADLE_VERSION}/bin:$PATH" >> $GITHUB_ENV
 
       - name: Build debug APK
         run: |
