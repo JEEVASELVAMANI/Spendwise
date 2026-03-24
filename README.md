@@ -15,4 +15,3 @@ How to build
 Notes
 - For SMS BroadcastReceiver you must request `RECEIVE_SMS` and `READ_SMS` runtime permissions and the Play Store restricts these permissions. Using NotificationListener avoids SMS permissions.
 - This scaffold is minimal and intended as a starting point. Add tests and secure backups before production use.
-\n
