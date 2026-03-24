@@ -18,10 +18,12 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Install Gradle CLI (if no wrapper)
+      - name: Install Gradle 8.2.2
         run: |
-          sudo apt-get update
-          sudo apt-get install -y gradle
+          curl -L https://services.gradle.org/distributions/gradle-8.2.2-bin.zip -o /tmp/gradle.zip
+          sudo unzip -d /opt/gradle /tmp/gradle.zip
+          echo "GRADLE_HOME=/opt/gradle/gradle-8.2.2" >> $GITHUB_ENV
+          echo "PATH=/opt/gradle/gradle-8.2.2/bin:$PATH" >> $GITHUB_ENV
 
       - name: Build debug APK
         run: |
