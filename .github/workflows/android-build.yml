@@ -23,14 +23,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gradle
 
-      - name: Create Gradle wrapper
-        run: |
-          gradle wrapper --gradle-version 8.2.2 --distribution-type all
-
       - name: Build debug APK
         run: |
-          chmod +x ./gradlew
-          ./gradlew clean assembleDebug --no-daemon
+          gradle clean assembleDebug --no-daemon
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
