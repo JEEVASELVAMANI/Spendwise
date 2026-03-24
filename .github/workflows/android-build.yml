@@ -28,6 +28,10 @@ jobs:
           echo "GRADLE_HOME=/opt/gradle/gradle-${GRADLE_VERSION}" >> $GITHUB_ENV
           echo "PATH=/opt/gradle/gradle-${GRADLE_VERSION}/bin:$PATH" >> $GITHUB_ENV
 
+      - name: List Gradle tasks
+        run: |
+          gradle :app:tasks --all
+
       - name: Build debug APK
         run: |
           gradle :app:assembleDebug --no-daemon
