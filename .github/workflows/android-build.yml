@@ -30,7 +30,7 @@ jobs:
 
       - name: List Gradle tasks
         run: |
-          gradle :app:tasks --all
+          gradle :app:tasks --all --info
 
       - name: Build debug APK
         run: |
