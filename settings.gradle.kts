@@ -1,3 +1,5 @@
+import org.gradle.api.artifacts.repositories.RepositoriesMode
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -7,7 +9,7 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    repositoriesMode.set(org.gradle.api.artifacts.repositories.RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
